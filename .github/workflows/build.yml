@@ -9,9 +9,20 @@ jobs:
         with:
           channel: 'stable'
       - run: flutter pub get
-      - run: flutter build apk --split-per-abi
       - run: flutter build web
-      - run: flutter build linux
+      #- run: flutter build linux
+      - uses: actions/upload-artifact@v3
+        with:
+          name: android
+          path: build/app/outputs/flutter-apk/ # or path/to/artifact
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      - run: flutter build apk --split-per-abi
       - uses: actions/upload-artifact@v3
         with:
           name: android
