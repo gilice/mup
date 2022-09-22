@@ -1,0 +1,15 @@
+name: build-all
+on: [push]
+jobs:
+  build-all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      - run: flutter pub get
+      - run: flutter build apk --split-per-abi
+      - run: flutter build web
+      - run: flutter build linux
+

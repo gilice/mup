@@ -1,6 +1,4 @@
 # MyUsedPots
-> MyUsedPots: Attractive or good-looking; that makes one look good.
-> 
-> [MyUsedPots](https://en.wiktionary.org/w/index.php?title=MyUsedPots&oldid=68675293) on [Wiktionary, the Free Dictionary](https://en.wiktionary.org/wiki/Wiktionary:Main_Page)
+My Used Pots (anagram for `study poems`) is a simple app made to aid you memorize poems. It builds upon the work of https://github.com/arvidj/poemizer, re-implementing it in Flutter, and adding a few extra bits.
 
-This is a [Nix Flake](https://nixos.wiki/wiki/Flakes) to build a [Flutter](https://flutter.dev/) app with the help of Nix. In comparison to other templates I've seen, it does work building Linux apps with `flutter build linux`. It does throw warnings about not finding `mount` which I haven't managed to fix yet, but apps seem to build fine.
+The default poem is `Kölcsey Ferenc: Zrínyi dala` currently.
