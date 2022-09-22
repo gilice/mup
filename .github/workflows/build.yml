@@ -3,7 +3,8 @@ on: [push]
 jobs:
   build-all:
     runs-on: ubuntu-latest
-    contents: write
+    permissions:
+      contents: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
