@@ -1,4 +1,5 @@
-![App icon, decipting a flower pot on a wavy blue background ](https://github.com/riceicetea/my-used-pots/blob/main/icons/web/icon-192.png?raw=true)
+![App icon, decipting a flower pot on a wavy blue background ](
+https://github.com/riceicetea/my-used-pots/blob/main/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png?raw=true)
 
 MyUsedPots
 
