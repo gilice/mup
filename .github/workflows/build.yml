@@ -13,7 +13,7 @@ jobs:
         with:
           channel: 'stable'
       - run: flutter pub get
-      - run: flutter build web
+      - run: flutter build web --base-href /my-used-pots/
       #- run: flutter build linux
       - uses: actions/upload-artifact@v3
         with:
