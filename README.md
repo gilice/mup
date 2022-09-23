@@ -1,11 +1,11 @@
 ![App icon, decipting a flower pot on a wavy blue background ](
-https://github.com/riceicetea/my-used-pots/blob/main/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png?raw=true)
+https://github.com/riceicetea/my-used-pots/blob/main/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png?raw=true)
 
-MyUsedPots
+# MyUsedPots
 
 https://riceicetea.github.io/my-used-pots/ (web version)
 
-My Used Pots (anagram for study poems ) is a simple app made to aid you memorize poems. It builds upon the work of https://github.com/arvidj/poemizer , re-implementing it in Flutter, and adding a few extra bits.
+My Used Pots (anagram for study poems) is a simple app made to aid you memorize poems. It builds upon the work of https://github.com/arvidj/poemizer , re-implementing it in Flutter, and adding a few extra bits.
 
 The default poem is Kölcsey Ferenc: Zrínyi dala currently.
 
