@@ -13,12 +13,8 @@ jobs:
         with:
           channel: 'stable'
       - run: flutter pub get
-      - run: flutter build web --base-href /my-used-pots/
+      - run: flutter build web --base-href /mup/
       #- run: flutter build linux
-      - uses: actions/upload-artifact@v3
-        with:
-          name: android
-          path: build/app/outputs/flutter-apk/ # or path/to/artifact
       - uses: peaceiris/actions-gh-pages@v3
         # If you're changing the branch from main,
         # also change the `main` in `refs/heads/main`
