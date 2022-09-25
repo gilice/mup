@@ -1,11 +1,10 @@
-import 'dart:developer';
-
-import 'package:MyUsedPots/screens/home_screen.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_used_pots/log_all_observer.dart';
+import 'package:my_used_pots/screens/home_screen.dart';
 
 void main() {
   GoogleFonts.config.allowRuntimeFetching = false;
@@ -25,34 +24,13 @@ ThemeData themeFromColorScheme(ColorScheme inp) {
       appBarTheme: AppBarTheme(foregroundColor: inp.onBackground),
       dialogBackgroundColor: inp.surface,
       colorScheme: inp,
+      brightness: inp.brightness,
       cardColor: inp.surface,
-      dialogTheme: DialogTheme(backgroundColor: inp.surface),
-      textTheme: GoogleFonts.dmSansTextTheme());
-}
-
-class LogAllObserver implements ProviderObserver {
-  @override
-  void didAddProvider(
-      ProviderBase provider, Object? value, ProviderContainer container) {
-    log("provider added: ${provider.name ?? provider.runtimeType}, value: $value");
-  }
-
-  @override
-  void didDisposeProvider(ProviderBase provider, ProviderContainer containers) {
-    log("provider disposed: ${provider.name ?? provider.runtimeType}");
-  }
-
-  @override
-  void didUpdateProvider(ProviderBase provider, Object? previousValue,
-      Object? newValue, ProviderContainer container) {
-    log("provider updated: ${provider.name ?? provider.runtimeType}, previous: $previousValue, new: $newValue");
-  }
-
-  @override
-  void providerDidFail(ProviderBase provider, Object error,
-      StackTrace stackTrace, ProviderContainer container) {
-    log("provider failed: ${provider.name ?? provider.runtimeType}, error: $error, stack: $stackTrace");
-  }
+      dialogTheme: DialogTheme(
+          backgroundColor: inp.surface,
+          contentTextStyle: GoogleFonts.dmSans(color: inp.onSurface)),
+      textTheme: GoogleFonts.dmSansTextTheme()
+          .apply(bodyColor: inp.onBackground, displayColor: inp.onBackground));
 }
 
 class MyApp extends StatelessWidget {

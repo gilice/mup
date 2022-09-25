@@ -4,10 +4,11 @@
 import 'dart:developer' as dev;
 import 'dart:math';
 
-import 'package:MyUsedPots/screens/home_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:my_used_pots/screens/home_screen.dart';
 
 final allLearningSteps = Provider.autoDispose<int>((ref) {
   var linesLength = ref.read(poemLines).length;
@@ -118,14 +119,8 @@ class _JustReadScreenState extends State<JustReadScreen> {
                             return SingleChildScrollView(
                               child: SelectableText(
                                 toDisplay,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                        fontFamily: "monospace",
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onSurfaceVariant),
+                                style: GoogleFonts.dmMono(),
+                                // style: GoogleFonts().d,
                               ),
                             );
                           },

@@ -1,10 +1,10 @@
-import 'package:MyUsedPots/constants.dart';
-import 'package:MyUsedPots/main.dart';
-import 'package:MyUsedPots/screens/just_read_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_used_pots/constants.dart';
+import 'package:my_used_pots/main.dart';
+import 'package:my_used_pots/screens/just_read_screen.dart';
 
 final poemProvider = StateProvider<String>((ref) {
   return "";
@@ -30,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
               onPressed: () {
                 showModalBottomSheet(
+                    backgroundColor: Theme.of(context).colorScheme.surface,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(16),
