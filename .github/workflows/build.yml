@@ -1,5 +1,9 @@
 name: build-all
-on: [push]
+on:
+ push:
+  paths-ignore:
+   - 'README.md'
+   
 jobs:
   build-all:
     runs-on: ubuntu-latest
