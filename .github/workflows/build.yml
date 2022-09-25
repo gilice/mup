@@ -38,5 +38,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: android
-          path: build/app/outputs/flutter-apk/ # or path/to/artifact
+          path: build/app/outputs/flutter-apk/* # or path/to/artifact
 
