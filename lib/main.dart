@@ -1,7 +1,8 @@
 import 'dart:developer';
 
-import 'package:dynamic_color/dynamic_color.dart';
 import 'package:MyUsedPots/screens/home_screen.dart';
+import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,6 +12,12 @@ void main() {
 
   runApp(const MyApp());
 }
+
+final themeModeProvider = StateProvider<ThemeMode>(
+  (ref) {
+    return ThemeMode.system;
+  },
+);
 
 ThemeData themeFromColorScheme(ColorScheme inp) {
   return ThemeData(
@@ -75,12 +82,17 @@ class MyApp extends StatelessWidget {
           ).harmonized();
         }
         return ProviderScope(
-          observers: [LogAllObserver()],
-          child: MaterialApp(
-            title: 'Flutter Demo',
-            theme: themeFromColorScheme(lightColorScheme),
-            darkTheme: themeFromColorScheme(darkColorScheme),
-            home: const HomeScreen(),
+          observers: kDebugMode ? [LogAllObserver()] : null,
+          child: Consumer(
+            builder: (BuildContext context, WidgetRef ref, Widget? child) {
+              return MaterialApp(
+                title: 'Flutter Demo',
+                themeMode: ref.watch(themeModeProvider),
+                theme: themeFromColorScheme(lightColorScheme),
+                darkTheme: themeFromColorScheme(darkColorScheme),
+                home: const HomeScreen(),
+              );
+            },
           ),
         );
       },

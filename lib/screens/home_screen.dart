@@ -1,4 +1,5 @@
 import 'package:MyUsedPots/constants.dart';
+import 'package:MyUsedPots/main.dart';
 import 'package:MyUsedPots/screens/just_read_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -28,13 +29,55 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
               onPressed: () {
-                showLicensePage(
-                  context: context,
-                  applicationName: "My Used Pots",
-                  applicationLegalese:
-                      "MUP is a tool that makes memorizing poems easier\n(the name's an anagram of \"study poems\")",
-                  useRootNavigator: true,
-                );
+                showModalBottomSheet(
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(16),
+                            topRight: Radius.circular(16))),
+                    context: context,
+                    builder: (context) {
+                      return Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ListTile(
+                              title: const Text("Theme"),
+                              trailing:
+                                  Consumer(builder: (context, ref, child) {
+                                return DropdownButton(
+                                  items: const [
+                                    DropdownMenuItem<ThemeMode>(
+                                        value: ThemeMode.system,
+                                        child: Text("System")),
+                                    DropdownMenuItem<ThemeMode>(
+                                        value: ThemeMode.light,
+                                        child: Text("Light")),
+                                    DropdownMenuItem<ThemeMode>(
+                                        value: ThemeMode.dark,
+                                        child: Text("Dark")),
+                                  ],
+                                  onChanged: (ThemeMode? nwValue) {
+                                    if (nwValue != null) {
+                                      ref.read(themeModeProvider.state).state =
+                                          nwValue;
+                                    }
+                                  },
+                                  value: ref.watch(themeModeProvider),
+                                );
+                              }),
+                            ),
+                            const AboutListTile(
+                              applicationName: "My Used Pots",
+                              icon: Icon(Icons.info_outline),
+                              applicationLegalese:
+                                  "MUP is a tool that makes memorizing poems easier\n(the name's an anagram of \"study poems\")",
+                            ),
+                          ],
+                        ),
+                      );
+                    });
+
                 // Navigator.push(
                 //     context,
                 //     MaterialPageRoute(
