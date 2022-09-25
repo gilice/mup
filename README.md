@@ -9,4 +9,4 @@ My Used Pots (anagram for study poems) is a simple app made to aid you memorize 
 
 The default poem is Kölcsey Ferenc: Zrínyi dala currently.
 
-A GitHub CI bot builds android apps and the web app on every commit. Download the android folder from the assets, unzip, and install the APK for your architecture. Currently, google play will give a warning because the APK is signed with debug keys.
+A GitHub CI bot builds android apps and the web app on every commit. Download [the apk for your architecture from here](https://github.com/gilice/mup/actions) (find it under 'latest runs' -> scroll down -> artifacts). Currently, google play will give a warning because the APK is signed with debug keys.
