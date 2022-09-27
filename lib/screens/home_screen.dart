@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_used_pots/constants.dart';
 import 'package:my_used_pots/main.dart';
 import 'package:my_used_pots/screens/task_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 final poemProvider = StateProvider<String>((ref) {
   return "";
@@ -68,9 +69,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                 );
                               }),
                             ),
-                            const AboutListTile(
+                            AboutListTile(
                               applicationName: "My Used Pots",
-                              icon: Icon(Icons.info_outline),
+                              icon: const Icon(Icons.info_outline),
+                              aboutBoxChildren: [
+                                Center(
+                                  child: ElevatedButton.icon(
+                                      onPressed: () {
+                                        launchUrl(Uri.parse(
+                                            'https://github.com/gilice/mup'));
+                                      },
+                                      icon: const Icon(Icons.code_outlined),
+                                      label: const Text("View source code")),
+                                ),
+                              ],
                               applicationLegalese:
                                   "MUP is a tool that makes memorizing poems easier\n(the name's an anagram of \"study poems\")",
                             ),
