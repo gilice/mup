@@ -47,11 +47,13 @@ final messageProvider = Provider.autoDispose<String>((ref) {
 }, name: "message");
 
 final poemLines = StateProvider<List<String>>((ref) {
-  return ref
-      .watch(poemProvider)
-      .split("\n")
-      .where((element) => element != "\n")
-      .toList();
+  var allElements = ref.watch(poemProvider).split("\n");
+
+  allElements.removeWhere((element) {
+    var tr = element.trim();
+    return tr.isEmpty || tr == '\n';
+  });
+  return allElements;
 }, name: "poemLines");
 
 class TaskScreen extends StatefulWidget {
