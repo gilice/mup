@@ -73,14 +73,17 @@ class _HomeScreenState extends State<HomeScreen> {
                               applicationName: "My Used Pots",
                               icon: const Icon(Icons.info_outline),
                               aboutBoxChildren: [
-                                Center(
-                                  child: ElevatedButton.icon(
-                                      onPressed: () {
-                                        launchUrl(Uri.parse(
-                                            'https://github.com/gilice/mup'));
-                                      },
-                                      icon: const Icon(Icons.code_outlined),
-                                      label: const Text("View source code")),
+                                Padding(
+                                  padding: const EdgeInsets.all(12),
+                                  child: Center(
+                                    child: ElevatedButton.icon(
+                                        onPressed: () {
+                                          launchUrl(Uri.parse(
+                                              'https://github.com/gilice/mup'));
+                                        },
+                                        icon: const Icon(Icons.code_outlined),
+                                        label: const Text("View source code")),
+                                  ),
                                 ),
                               ],
                               applicationLegalese:
