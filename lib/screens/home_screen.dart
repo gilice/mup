@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_used_pots/constants.dart';
 import 'package:my_used_pots/main.dart';
-import 'package:my_used_pots/screens/just_read_screen.dart';
+import 'package:my_used_pots/screens/task_screen.dart';
 
 final poemProvider = StateProvider<String>((ref) {
   return "";
@@ -153,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const JustReadScreen()));
+                        builder: (context) => const TaskScreen()));
               },
               child: const Icon(Icons.done_outlined));
         },

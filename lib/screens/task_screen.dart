@@ -1,6 +1,3 @@
-// Desc: The first task -- just read the whole poem out loud.
-// Modified: 2022-09-14T16:53:15.075Z
-
 import 'dart:developer' as dev;
 import 'dart:math';
 
@@ -50,16 +47,20 @@ final messageProvider = Provider.autoDispose<String>((ref) {
 }, name: "message");
 
 final poemLines = StateProvider<List<String>>((ref) {
-  return ref.watch(poemProvider).split("\n");
+  return ref
+      .watch(poemProvider)
+      .split("\n")
+      .where((element) => element != "\n")
+      .toList();
 }, name: "poemLines");
 
-class JustReadScreen extends StatefulWidget {
-  const JustReadScreen({Key? key}) : super(key: key);
+class TaskScreen extends StatefulWidget {
+  const TaskScreen({Key? key}) : super(key: key);
   @override
-  State<JustReadScreen> createState() => _JustReadScreenState();
+  State<TaskScreen> createState() => _TaskScreenState();
 }
 
-class _JustReadScreenState extends State<JustReadScreen> {
+class _TaskScreenState extends State<TaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
