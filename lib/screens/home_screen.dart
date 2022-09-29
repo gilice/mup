@@ -4,7 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_used_pots/constants.dart';
 import 'package:my_used_pots/main.dart';
-import 'package:my_used_pots/screens/task_screen.dart';
+import 'package:my_used_pots/screens/task/screen.dart';
+import 'package:my_used_pots/widgets/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final poemProvider = StateProvider<String>((ref) {
@@ -20,13 +21,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController poemFieldController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // TODO: File a GitHub issue on this - this seems to be required even tho it probably should be inhibited from the theme
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        title: const Text("MyUsedPots"),
+      appBar: brandedAppBar(
         actions: [
           IconButton(
               onPressed: () {
@@ -38,9 +39,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             topRight: Radius.circular(16))),
                     context: context,
                     builder: (context) {
-                      return Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
+                      return standardPadding(
+                        multiplier: 2,
+                        Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             ListTile(
@@ -70,35 +71,27 @@ class _HomeScreenState extends State<HomeScreen> {
                               }),
                             ),
                             AboutListTile(
-                              applicationName: "My Used Pots",
+                              applicationName: appDisplayName,
                               icon: const Icon(Icons.info_outline),
                               aboutBoxChildren: [
-                                Padding(
-                                  padding: const EdgeInsets.all(12),
-                                  child: Center(
+                                standardPadding(
+                                  multiplier: 2,
+                                  Center(
                                     child: ElevatedButton.icon(
                                         onPressed: () {
-                                          launchUrl(Uri.parse(
-                                              'https://github.com/gilice/mup'));
+                                          launchUrl(Uri.parse(sourceUrl));
                                         },
                                         icon: const Icon(Icons.code_outlined),
                                         label: const Text("View source code")),
                                   ),
                                 ),
                               ],
-                              applicationLegalese:
-                                  "MUP is a tool that makes memorizing poems easier\n(the name's an anagram of \"study poems\")",
+                              applicationLegalese: appSales,
                             ),
                           ],
                         ),
                       );
                     });
-
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => const LicensePage(),
-                //     ));
               },
               icon: const Icon(Icons.info_outline))
         ],
@@ -141,9 +134,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       child: const Text("Use default")),
                   if (!kReleaseMode)
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: ElevatedButton.icon(
+                    standardPadding(
+                      ElevatedButton.icon(
                           onPressed: () {
                             setState(() {
                               poemFieldController.text = poemDebug;

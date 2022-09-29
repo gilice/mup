@@ -1,6 +1,10 @@
 // Desc: Constant strings and stuff, to use elsewhere without cluttering stuff up
 // Modified: 2022-09-14T16:50:38.451Z
-String defaultPoem = """Hol van a hon, melynek Árpád vére
+const String appDisplayName = "My Used Pots";
+const String appSales =
+    "MUP is a tool that makes memorizing poems easier\n(the name's an anagram of \"study poems\")";
+
+const String defaultPoem = """Hol van a hon, melynek Árpád vére
 Győzelemben csorga szent földére,
 Mely nevével hév szerelmet gyújt;
 S messze képét bújdosó magzatja,
@@ -41,8 +45,11 @@ A dicső nép, mely tanúlt izzadni,
 S izzad s közt hősi bért aratni,
 Névben él csak, többé nincs jelen.""";
 
-String poemDebug = """Line1
+const String poemDebug = """Line1
 Line2
 Line3
+
 Line4
 Line5""";
+
+const sourceUrl = 'https://github.com/gilice/mup';
