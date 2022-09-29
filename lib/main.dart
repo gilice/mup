@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_used_pots/constants.dart';
 import 'package:my_used_pots/log_all_observer.dart';
 import 'package:my_used_pots/screens/home_screen.dart';
 
@@ -64,7 +65,7 @@ class MyApp extends StatelessWidget {
           child: Consumer(
             builder: (BuildContext context, WidgetRef ref, Widget? child) {
               return MaterialApp(
-                title: 'Flutter Demo',
+                title: appDisplayName,
                 themeMode: ref.watch(themeModeProvider),
                 theme: themeFromColorScheme(lightColorScheme),
                 darkTheme: themeFromColorScheme(darkColorScheme),

@@ -1,5 +1,5 @@
 {
-  description = "A simple quickstart for flutter based flakes";
+  description = "An app to study poems";
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat = {

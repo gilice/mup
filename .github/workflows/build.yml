@@ -5,7 +5,7 @@ on:
    - 'README.md'
    
 jobs:
-  build-all:
+  build-web:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -38,5 +38,17 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: android
-          path: build/app/outputs/flutter-apk/*.apk # or path/to/artifact
+          path: build/app/outputs/flutter-apk/*.apk
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v15
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - run: nix-build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: linux
+          path: result/app/*
 

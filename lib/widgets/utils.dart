@@ -1,6 +1,3 @@
-// Desc: description
-// Modified: 2022-09-29T18:29:57.850Z
-
 import 'package:flutter/material.dart';
 import 'package:my_used_pots/constants.dart';
 
