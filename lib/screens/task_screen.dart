@@ -48,11 +48,17 @@ final messageProvider = Provider.autoDispose<String>((ref) {
 
 final poemLines = StateProvider<List<String>>((ref) {
   var allElements = ref.watch(poemProvider).split("\n");
+  var i = 0;
+  while (i < allElements.length) {
+    var tr = allElements[i].trim();
+    if (tr.isEmpty || tr == '\n') {
+      allElements[i - 1] += " 🛑";
+      allElements.removeAt(i);
+    }
 
-  allElements.removeWhere((element) {
-    var tr = element.trim();
-    return tr.isEmpty || tr == '\n';
-  });
+    i += 1;
+  }
+
   return allElements;
 }, name: "poemLines");
 
