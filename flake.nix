@@ -37,7 +37,7 @@
               name = "my-used-pots";
               version = "1.0.0";
               src = self;
-              vendorHash = "sha256-EJIrluVtRDD3pTyE0WioKnyIY11ajJP6fCybdSRHNLI=";
+              vendorHash = "sha256-Y9+5J3JFwww18dLKftmZ1YfhCr9fMDdVjLdS7OC2w7k=";
 
             };
           devShells.default = pkgs.mkShell rec {
