@@ -16,7 +16,7 @@ class _TaskScreenState extends State<TaskScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: brandedAppBar(),
+      appBar: BrandedAppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -27,7 +27,7 @@ class _TaskScreenState extends State<TaskScreen> {
             ),
           ),
           Expanded(
-            child: standardPadding(
+            child: StandardPadding(
               multiplier: 2,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -44,10 +44,10 @@ class _TaskScreenState extends State<TaskScreen> {
                                         .onBackground),
                           ))),
                   Expanded(
-                    child: standardPadding(
+                    child: StandardPadding(
                       Card(
                         color: Theme.of(context).colorScheme.surfaceVariant,
-                        child: standardPadding(
+                        child: StandardPadding(
                           SingleChildScrollView(
                             child: Consumer(
                               builder: (context, ref, child) => SelectableText(

@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       // TODO: File a GitHub issue on this - this seems to be required even tho it probably should be inhibited from the theme
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: brandedAppBar(
+      appBar: BrandedAppBar(
         actions: [
           IconButton(
               onPressed: () {
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             topRight: Radius.circular(16))),
                     context: context,
                     builder: (context) {
-                      return standardPadding(
+                      return StandardPadding(
                         multiplier: 2,
                         Column(
                           mainAxisSize: MainAxisSize.min,
@@ -72,9 +72,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             AboutListTile(
                               applicationName: appDisplayName,
-                              icon: const Icon(Icons.info_outline),
+                              icon: const Icon(Icons.settings_outlined),
                               aboutBoxChildren: [
-                                standardPadding(
+                                StandardPadding(
                                   multiplier: 2,
                                   Center(
                                     child: ElevatedButton.icon(
@@ -134,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       child: const Text("Use default")),
                   if (!kReleaseMode)
-                    standardPadding(
+                    StandardPadding(
                       ElevatedButton.icon(
                           onPressed: () {
                             setState(() {
